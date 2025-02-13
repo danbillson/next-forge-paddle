@@ -4,5 +4,7 @@
   "repo": "next-forge-paddle",
   "name": "Dan Billson",
   "email": "dbillson@outlook.com",
-  "noChangelog": true
+  "shipit": {
+    "noChangelog": true
+  }
 }

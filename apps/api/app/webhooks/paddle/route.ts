@@ -3,8 +3,13 @@ import { analytics } from '@repo/analytics/posthog/server';
 import { clerkClient } from '@repo/auth/server';
 import { parseError } from '@repo/observability/error';
 import { log } from '@repo/observability/log';
-import { stripe } from '@repo/payments';
-import type { Stripe } from '@repo/payments';
+import {
+  type CustomerCreatedEvent,
+  type CustomerUpdatedEvent,
+  type SubscriptionCreatedEvent,
+  type SubscriptionUpdatedEvent,
+  paddle,
+} from '@repo/payments';
 import { headers } from 'next/headers';
 import { NextResponse } from 'next/server';
 
@@ -13,21 +18,20 @@ const getUserFromCustomerId = async (customerId: string) => {
   const users = await clerk.users.getUserList();
 
   const user = users.data.find(
-    (user) => user.privateMetadata.stripeCustomerId === customerId
+    (user) => user.privateMetadata.paddleCustomerId === customerId
   );
 
   return user;
 };
 
-const handleCheckoutSessionCompleted = async (
-  data: Stripe.Checkout.Session
+const handleSubscriptionUpdate = async (
+  data: SubscriptionCreatedEvent | SubscriptionUpdatedEvent
 ) => {
-  if (!data.customer) {
+  if (!data.data.customerId) {
     return;
   }
 
-  const customerId =
-    typeof data.customer === 'string' ? data.customer : data.customer.id;
+  const customerId = data.data.customerId;
   const user = await getUserFromCustomerId(customerId);
 
   if (!user) {
@@ -40,15 +44,14 @@ const handleCheckoutSessionCompleted = async (
   });
 };
 
-const handleSubscriptionScheduleCanceled = async (
-  data: Stripe.SubscriptionSchedule
+const handleCustomerUpdate = async (
+  data: CustomerCreatedEvent | CustomerUpdatedEvent
 ) => {
-  if (!data.customer) {
+  if (!data.data.id) {
     return;
   }
 
-  const customerId =
-    typeof data.customer === 'string' ? data.customer : data.customer.id;
+  const customerId = data.data.id;
   const user = await getUserFromCustomerId(customerId);
 
   if (!user) {
@@ -56,7 +59,7 @@ const handleSubscriptionScheduleCanceled = async (
   }
 
   analytics.capture({
-    event: 'User Unsubscribed',
+    event: 'User Subscribed',
     distinctId: user.id,
   });
 };
@@ -69,29 +72,31 @@ export const POST = async (request: Request): Promise<Response> => {
   try {
     const body = await request.text();
     const headerPayload = await headers();
-    const signature = headerPayload.get('stripe-signature');
+    const signature = headerPayload.get('paddle-signature');
 
     if (!signature) {
-      throw new Error('missing stripe-signature header');
+      throw new Error('missing paddle-signature header');
     }
 
-    const event = stripe.webhooks.constructEvent(
+    const event = await paddle.webhooks.unmarshal(
       body,
-      signature,
-      env.PADDLE_WEBHOOK_SECRET
+      env.PADDLE_WEBHOOK_SECRET,
+      signature
     );
 
-    switch (event.type) {
-      case 'checkout.session.completed': {
-        await handleCheckoutSessionCompleted(event.data.object);
+    switch (event.eventType) {
+      case 'subscription.created':
+      case 'subscription.updated': {
+        await handleSubscriptionUpdate(event);
         break;
       }
-      case 'subscription_schedule.canceled': {
-        await handleSubscriptionScheduleCanceled(event.data.object);
+      case 'customer.created':
+      case 'customer.updated': {
+        await handleCustomerUpdate(event);
         break;
       }
       default: {
-        log.warn(`Unhandled event type ${event.type}`);
+        log.warn(`Unhandled event type ${event.eventType}`);
       }
     }
 

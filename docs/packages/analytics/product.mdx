@@ -30,15 +30,15 @@ analytics.capture({
 
 ## Webhooks
 
-To automatically capture authentication and payment events, we've combined PostHog's Node.js server-side library with Clerk and Stripe webhooks to wire it up as follows:
+To automatically capture authentication and payment events, we've combined PostHog's Node.js server-side library with Clerk and Paddle webhooks to wire it up as follows:
 
 <Mermaid chart={`
 graph TD
   A[User Action in App] -->|Triggers| B[Clerk Webhook]
-  A -->|Triggers| E[Stripe Webhook]
+  A -->|Triggers| E[Paddle Webhook]
   A -->|Client-Side Call| PostHog
   B -->|Sends Data| C1[webhooks/clerk]
-  E -->|Sends Data| C2[webhooks/stripe]
+  E -->|Sends Data| C2[webhooks/paddle]
 
   subgraph API
     C1
@@ -49,7 +49,7 @@ graph TD
   end
 
   C1 -->|Clerk Events| PostHog
-  C2 -->|Stripe Events| PostHog
+  C2 -->|Paddle Events| PostHog
 `} />
 
 ## Reverse Proxy

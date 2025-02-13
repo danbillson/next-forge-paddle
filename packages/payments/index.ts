@@ -1,9 +1,9 @@
 import 'server-only';
-import Stripe from 'stripe';
+import { type Environment, Paddle } from '@paddle/paddle-node-sdk';
 import { keys } from './keys';
 
-export const stripe = new Stripe(keys().PADDLE_SECRET_KEY, {
-  apiVersion: '2025-01-27.acacia',
+export const paddle = new Paddle(keys().PADDLE_SECRET_KEY, {
+  environment: keys().PADDLE_ENV as Environment,
 });
 
-export type { Stripe } from 'stripe';
+export * from '@paddle/paddle-node-sdk';

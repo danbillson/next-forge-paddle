@@ -14,6 +14,8 @@ export const noseconeOptions: NoseconeOptions = {
   // https://docs.next-forge.com/features/security/headers for guidance on how
   // to configure it.
   contentSecurityPolicy: false,
+  crossOriginEmbedderPolicy: false,
+  crossOriginResourcePolicy: false,
 };
 
 export const noseconeOptionsWithToolbar: NoseconeOptions =

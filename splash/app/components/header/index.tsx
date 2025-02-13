@@ -17,10 +17,6 @@ const links = [
     label: 'Features',
     href: '/#features',
   },
-  {
-    label: 'Community',
-    href: '/#community',
-  },
 ];
 
 export const Header = () => (
@@ -30,7 +26,7 @@ export const Header = () => (
         <Link href="/" className="flex items-center gap-2">
           <Image src={Logo} alt="Logo" width={20} height={20} />
           <p className="hidden font-semibold text-lg tracking-tight sm:block">
-            next-forge
+            next-forge-paddle
           </p>
         </Link>
         <div className="hidden items-center gap-4 font-medium text-neutral-500 text-sm lg:flex">

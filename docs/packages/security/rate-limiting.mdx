@@ -31,7 +31,7 @@ import { Authors } from '/snippets/authors.mdx';
 
 Modern applications need rate limiting to protect against abuse, manage resources efficiently, and enable tiered API access. Without rate limiting, your application is vulnerable to brute force attacks, scraping, and potential service disruptions from excessive usage.
 
-next-forge has a `rate-limit` package powered by [`@upstash/ratelimit`](https://github.com/upstash/ratelimit-js), a connectionless (HTTP-based) rate limiting library designed specifically for serverless and edge environments.
+next-forge-paddle has a `rate-limit` package powered by [`@upstash/ratelimit`](https://github.com/upstash/ratelimit-js), a connectionless (HTTP-based) rate limiting library designed specifically for serverless and edge environments.
 
 ## Setting up
 
@@ -83,7 +83,7 @@ You can learn more about the different rate limiting strategies other features i
 export const ratelimit = new Ratelimit({
   redis,
   limiter: Ratelimit.slidingWindow(10, "10 s"),
-  prefix: "next-forge",
+  prefix: "next-forge-paddle",
 })
 ```
 
@@ -125,7 +125,7 @@ To enable analytics for your rate limiting, pass the `analytics` configuration t
 export const ratelimit = new Ratelimit({
   redis,
   limiter: Ratelimit.slidingWindow(10, "10 s"),
-  prefix: "next-forge",
+  prefix: "next-forge-paddle",
   analytics: true, // Enable Upstash analytics
 })
 ```

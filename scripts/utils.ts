@@ -3,7 +3,7 @@ import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { promisify } from 'node:util';
 
-export const url = 'https://github.com/haydenbleasel/next-forge';
+export const url = 'https://github.com/danbillson/next-forge-paddle';
 
 export const cleanFileName = (file: string) =>
   file.replace(/\\/g, '\\\\').replace(/"/g, '\\"').replace(/\\/g, '/');
@@ -32,7 +32,7 @@ export const allInternalContent = [
 
 export const semver = /^\d+\.\d+\.\d+$/;
 
-export const tempDirName = 'next-forge-update';
+export const tempDirName = 'next-forge-paddle-update';
 
 export const exec = promisify(execRaw);
 

@@ -4,11 +4,13 @@ import { z } from 'zod';
 export const keys = () =>
   createEnv({
     server: {
-      STRIPE_SECRET_KEY: z.string().min(1).startsWith('sk_'),
-      STRIPE_WEBHOOK_SECRET: z.string().min(1).startsWith('whsec_').optional(),
+      PADDLE_SECRET_KEY: z.string().min(1),
+      PADDLE_WEBHOOK_SECRET: z.string().min(1).startsWith('ntfset_').optional(),
+      PADDLE_ENV: z.string().min(1).optional(),
     },
     runtimeEnv: {
-      STRIPE_SECRET_KEY: process.env.STRIPE_SECRET_KEY,
-      STRIPE_WEBHOOK_SECRET: process.env.STRIPE_WEBHOOK_SECRET,
+      PADDLE_SECRET_KEY: process.env.PADDLE_SECRET_KEY,
+      PADDLE_WEBHOOK_SECRET: process.env.PADDLE_WEBHOOK_SECRET,
+      PADDLE_ENV: process.env.PADDLE_ENV,
     },
   });

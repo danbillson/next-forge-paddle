@@ -5,13 +5,13 @@ description: How to change the database provider to Supabase.
 
 [Supabase](https://supabase.com) is an open source Firebase alternative providing a Postgres database, Authentication, instant APIs, Edge Functions, Realtime subscriptions, and Storage.
 
-`next-forge` uses Neon as the database provider with Prisma as the ORM as well as Clerk for authentication. This guide will provide the steps you need to switch the database provider from Neon to Supabase. This guide is based on a few existing resources, including [Supabase's guide](https://supabase.com/partners/integrations/prisma) and [Prisma's guide](https://www.prisma.io/docs/orm/overview/databases/supabase).
+`next-forge-paddle` uses Neon as the database provider with Prisma as the ORM as well as Clerk for authentication. This guide will provide the steps you need to switch the database provider from Neon to Supabase. This guide is based on a few existing resources, including [Supabase's guide](https://supabase.com/partners/integrations/prisma) and [Prisma's guide](https://www.prisma.io/docs/orm/overview/databases/supabase).
 
 <Note>
  For authentication, another guide will be provided to switch to Supabase Auth with feature parity to Clerk like organization management, user roles, and more (coming soon).
 </Note>
 
-Here's how to switch from Neon to [Supabase](https://supabase.com) for your `next-forge` project.
+Here's how to switch from Neon to [Supabase](https://supabase.com) for your `next-forge-paddle` project.
 
 ## 1. Sign up to Supabase
 
@@ -83,7 +83,7 @@ datasource db {
 }
 ```
 
-Now you can run the migration from the root of your `next-forge` project:
+Now you can run the migration from the root of your `next-forge-paddle` project:
 
 ```sh Terminal
 pnpm run migrate

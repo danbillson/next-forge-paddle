@@ -1,7 +1,7 @@
 {
   "$schema": "https://mintlify.com/schema.json",
 
-  "name": "next-forge docs",
+  "name": "next-forge-paddle docs",
 
   "logo": {
     "dark": "/images/logo-dark.svg",
@@ -19,7 +19,7 @@
   "layout": "topnav",
 
   "colors": {
-    "primary": "#f35815",
+    "primary": "#0f1515",
     "light": "#f35815",
     "dark": "#f35815",
     "anchors": {
@@ -30,7 +30,7 @@
 
   "topbarCtaButton": {
     "type": "github",
-    "url": "https://github.com/haydenbleasel/next-forge"
+    "url": "https://github.com/danbillson/next-forge-paddle"
   },
 
   "search": {
@@ -193,10 +193,6 @@
       "pages": ["deployment/vercel", "deployment/netlify"]
     },
     {
-      "group": "Payments",
-      "pages": ["migrations/payments/lemon-squeezy"]
-    },
-    {
       "group": "Storage",
       "pages": ["migrations/storage/upload-thing"]
     },
@@ -223,9 +219,9 @@
   ],
 
   "footerSocials": {
-    "x": "https://x.com/haydenbleasel",
-    "github": "https://github.com/haydenbleasel/next-forge",
-    "linkedin": "https://www.linkedin.com/in/haydenbleasel"
+    "x": "https://x.com/danbillson_",
+    "github": "https://github.com/danbillson/next-forge-paddle",
+    "linkedin": "https://www.linkedin.com/in/danielbillson"
   },
 
   "redirects": [

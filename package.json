@@ -1,8 +1,8 @@
 {
-  "name": "next-forge",
+  "name": "next-forge-paddle",
   "version": "3.2.23",
   "bin": {
-    "next-forge": "dist/index.js"
+    "next-forge-paddle": "dist/index.js"
   },
   "files": [
     "dist/index.js"

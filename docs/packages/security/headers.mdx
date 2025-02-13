@@ -25,7 +25,7 @@ import { Authors } from '/snippets/authors.mdx';
   },
 }]} />
 
-next-forge uses [Nosecone](https://docs.arcjet.com/nosecone/quick-start) to set HTTP response headers related to security.
+next-forge-paddle uses [Nosecone](https://docs.arcjet.com/nosecone/quick-start) to set HTTP response headers related to security.
 
 ## Configuration
 
@@ -54,9 +54,9 @@ They are then attached to the response within the middleware in `apps/app/middle
 
 ## Content Security Policy (CSP)
 
-The CSP header is not set by default because it requires specific configuration based on the next-forge features you have enabled.
+The CSP header is not set by default because it requires specific configuration based on the next-forge-paddle features you have enabled.
 
-In the meantime, you can set the CSP header using the Nosecone configuration. For example, the following CSP configuration will work with the default next-forge features:
+In the meantime, you can set the CSP header using the Nosecone configuration. For example, the following CSP configuration will work with the default next-forge-paddle features:
 
 ```ts
 import type { NoseconeOptions } from '@nosecone/next';

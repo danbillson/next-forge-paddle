@@ -16,8 +16,8 @@ export const GitHubButton = async ({
 
   try {
     const { data } = await octokit.repos.get({
-      owner: 'haydenbleasel',
-      repo: 'next-forge',
+      owner: 'danbillson',
+      repo: 'next-forge-paddle',
     });
     stars = data.stargazers_count;
     url = data.html_url;
@@ -40,10 +40,6 @@ export const GitHubButton = async ({
         <div className="flex items-center gap-2 px-4 py-2">
           <Image src={GitHub} alt="GitHub" width={16} height={16} />
           <div className="hidden sm:block">GitHub</div>
-        </div>
-        <div className="h-full w-px bg-neutral-200" />
-        <div className="px-4 py-2">
-          <div>{stars}</div>
         </div>
       </div>
     </a>

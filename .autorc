@@ -1,11 +1,8 @@
 {
-  "plugins": [
-    "npm",
-    "first-time-contributor",
-    "released"
-  ],
+  "plugins": ["npm", "first-time-contributor", "released"],
   "owner": "danbillson",
   "repo": "next-forge-paddle",
   "name": "Dan Billson",
-  "email": "dbillson@outlook.com"
+  "email": "dbillson@outlook.com",
+  "noChangelog": true
 }

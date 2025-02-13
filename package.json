@@ -1,6 +1,6 @@
 {
   "name": "next-forge-paddle",
-  "version": "3.2.23",
+  "version": "3.2.24",
   "bin": {
     "next-forge-paddle": "dist/index.js"
   },

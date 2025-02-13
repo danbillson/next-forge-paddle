@@ -1,4 +1,4 @@
-# next-forge
+# next-forge-paddle
 
 **Production-grade Turborepo template for Next.js apps.**
 
@@ -17,9 +17,3 @@ npx next-forge@latest init
 ```
 
 Then read the [docs](https://docs.next-forge.com) for more information.
-
-<a href="https://github.com/haydenbleasel/next-forge/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=haydenbleasel/next-forge" />
-</a>
-
-Made with [contrib.rocks](https://contrib.rocks).

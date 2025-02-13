@@ -10,7 +10,7 @@ import Radix from './radix.svg';
 
 import ReactEmail from './react-email.svg';
 import Sentry from './sentry.svg';
-import Stripe from './stripe.svg';
+import Paddle from './paddle.svg';
 import Svix from './svix.svg';
 import Tailwind from './tailwind.svg';
 import TypeScript from './typescript.svg';
@@ -129,8 +129,8 @@ const rows = [
   {
     row: [
       {
-        label: 'Stripe',
-        src: Stripe,
+        label: 'Paddle',
+        src: Paddle,
         className: '[animation-delay:-55s] [animation-duration:60s]',
       },
       {

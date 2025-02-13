@@ -53,8 +53,8 @@ jobs:
           echo "RESEND_FROM=test@test.com" >> apps/app/.env.local
           echo "DATABASE_URL=postgresql://test:test@localhost:5432/test" >> apps/app/.env.local
           echo "RESEND_TOKEN=re_test" >> apps/app/.env.local
-          echo "STRIPE_SECRET_KEY=sk_test" >> apps/app/.env.local
-          echo "STRIPE_WEBHOOK_SECRET=whsec_test" >> apps/app/.env.local
+          echo "PADDLE_SECRET_KEY=test" >> apps/app/.env.local
+          echo "PADDLE_WEBHOOK_SECRET=ntfset_" >> apps/app/.env.local
           echo "BETTERSTACK_API_KEY=test" >> apps/app/.env.local
           echo "BETTERSTACK_URL=https://test.com" >> apps/app/.env.local
           echo "FLAGS_SECRET=FcnUGt7tT-4cOw-D_1GoXAH1bU7ljDBr01F5w4dxrdQ" >> apps/app/.env.local
@@ -77,6 +77,8 @@ jobs:
           echo "NEXT_PUBLIC_APP_URL=http://localhost:3000" >> apps/app/.env.local
           echo "NEXT_PUBLIC_WEB_URL=http://localhost:3001" >> apps/app/.env.local
           echo "NEXT_PUBLIC_DOCS_URL=http://localhost:3004" >> apps/app/.env.local
+          echo "NEXT_PUBLIC_PADDLE_ENV=sandbox" >> apps/app/.env.local
+          echo "NEXT_PUBLIC_PADDLE_CLIENT_TOKEN=test_" >> apps/app/.env.local
 
       - name: Copy .env.local file
         run: |

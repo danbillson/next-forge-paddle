@@ -1,15 +1,15 @@
 ---
 title: Prerequisites
-description: How to configure your development environment for next-forge.
+description: How to configure your development environment for next-forge-paddle.
 ---
 
 ## Operating System
 
-next-forge is designed to work on macOS, Linux and Windows. While next-forge itself is platform-agnostic, the tooling and dependencies we use have different requirements.
+next-forge-paddle is designed to work on macOS, Linux and Windows. While next-forge-paddle itself is platform-agnostic, the tooling and dependencies we use have different requirements.
 
-We've tested and confirmed that next-forge works on the following combinations of operating systems, Node.js versions and next-forge versions:
+We've tested and confirmed that next-forge-paddle works on the following combinations of operating systems, Node.js versions and next-forge-paddle versions:
 
-| Operating system | next-forge version | Node.js version | Notes |
+| Operating system | next-forge-paddle version | Node.js version | Notes |
 | ---------------- | ----------------- | --------------- | ----- |
 | macOS Sequoia 15.0.1 (24A348) | 2.14.3 | 20.12.2 |  |
 | Ubuntu 24.04 Arm64 | 2.14.3 | 20.18.0 |  |
@@ -26,19 +26,6 @@ next-forge defaults to using [pnpm](https://pnpm.io/) as a package manager, but 
   Install pnpm for your operating system.
 </Card>
 
-## Stripe CLI
-
-We use the Stripe CLI to forward [payments webhooks](/packages/payments#webhooks) to your local machine.
-
-<Card title="Install the Stripe CLI" icon="bolt" href="https://docs.stripe.com/stripe-cli" horizontal>
-  Install the Stripe CLI for your operating system.
-</Card>
-
-Once installed, you can login to authenticate with your Stripe account.
-
-```sh Terminal
-stripe login
-```
 
 ## Mintlify CLI
 
@@ -50,7 +37,7 @@ We use the Mintlify CLI to preview the [docs](/apps/docs) locally.
 
 ## Accounts
 
-next-forge relies on various SaaS products. You will need to create accounts with the following services then set the API keys in your [environment variables](/env):
+next-forge-paddle relies on various SaaS products. You will need to create accounts with the following services then set the API keys in your [environment variables](/env):
 
 - [Arcjet](https://arcjet.com), for [application security](/packages/security/application).
 - [BetterStack](https://betterstack.com), for [logging](/packages/observability/logging) and [uptime monitoring](/packages/observability/uptime).
@@ -59,4 +46,4 @@ next-forge relies on various SaaS products. You will need to create accounts wit
 - [Posthog](https://posthog.com), for [product analytics](/packages/analytics/product).
 - [Resend](https://resend.com), for [transactional emails](/packages/email).
 - [Sentry](https://sentry.io), for [error tracking](/packages/observability/error-capture).
-- [Stripe](https://stripe.com), for [payments](/packages/payments).
+- [Paddle](https://paddle.com), for [payments and billing](/packages/payments).

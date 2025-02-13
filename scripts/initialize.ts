@@ -19,7 +19,7 @@ import {
   supportedPackageManagers,
 } from './utils.js';
 
-const cloneNextForge = async (name: string, packageManager: string) => {
+const cloneNextForgePaddle = async (name: string, packageManager: string) => {
   const command = [
     'npx create-next-app@latest',
     name,
@@ -210,7 +210,7 @@ export const initialize = async (options: {
   disableGit?: boolean;
 }) => {
   try {
-    intro("Let's start a next-forge project!");
+    intro("Let's start a next-forge-paddle project!");
 
     const cwd = process.cwd();
     const name = options.name || (await getName());
@@ -224,8 +224,8 @@ export const initialize = async (options: {
     const s = spinner();
     const projectDir = join(cwd, name);
 
-    s.start('Cloning next-forge...');
-    await cloneNextForge(name, packageManager);
+    s.start('Cloning next-forge-paddle...');
+    await cloneNextForgePaddle(name, packageManager);
 
     s.message('Moving into repository...');
     process.chdir(projectDir);
@@ -261,7 +261,7 @@ export const initialize = async (options: {
     s.stop('Project initialized successfully!');
 
     outro(
-      'Please make sure you install the Mintlify CLI and Stripe CLI before starting the project.'
+      'Please make sure you install the Mintlify CLI before starting the project.'
     );
   } catch (error) {
     const message =
